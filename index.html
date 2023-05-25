@@ -32,7 +32,7 @@
         <!-- Restart game -->
         <input type="button" id="btn" value="RELOAD"></input>
         <footer>
-            <p>Built by RAYMOND OGARAGA &copy; copyrights 2023</p>
+            <p id="animate">Built by RAYMOND OGARAGA &copy; copyrights 2023</p>
         </footer>
     </div>
     <script>
@@ -172,6 +172,14 @@
             userScore.innerHTML = "";
             computerScore.innerHTML = "";
             };
+            let mypick = document.getElementById("game");
+            let animate = document.getElementById("animate");
+            buttons.onclick = ()=>{
+                animate.style.color = "black";
+                animate.style.display = "none";
+                attempts.style.display = "block";
+                mypick.style.display = "block";
+            }
       
          
     </script>

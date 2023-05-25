@@ -14,18 +14,18 @@
     justify-content: center;
     flex-direction: column;
 }
-footer p{
+#animate{
     margin:10px auto;
     text-align: center;
     padding: 10px;
     position: relative;
     bottom: -20px;
-    color: burlywood;
+    color: rgb(12, 3, 85);
     font-variant: small-caps;
     font-size: 13px;
     font-weight: bold;
 }
-#attempts{
+#span{
     color: hotpink;
     font-size: 17px;
     font-weight: bold;
@@ -38,6 +38,7 @@ footer p{
     font-variant: small-caps;
     opacity: 1;
     font-weight: bold;
+    display: none;
 }
 #gameover{
     font-size: 20px;
