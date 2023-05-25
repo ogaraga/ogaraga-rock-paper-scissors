@@ -86,9 +86,9 @@
                     case "rockrock":
                     case "paperpaper":
                     case "scissorsscissors":
-                    cScore;
-                    uScore;
-                    Trials;
+                    cScore++;
+                    uScore++;
+                    Trials++;
                     attempts.innerHTML = `Trials: ${Trials}`;
                     userScore.innerHTML = uScore;
                     computerScore.innerHTML = cScore;
@@ -99,7 +99,7 @@
                     case "rockpaper":
                     case "paperscissors":
                     case "scissorsrock":
-                    uScore++;
+                    uScore = uScore + 2;
                     cScore--;
                     Trials++;
                     attempts.innerHTML = `Trials: ${Trials}`;
@@ -112,7 +112,7 @@
                     case "paperrock":
                     case "scissorspaper":
                     case "rockscissors":
-                    cScore++;
+                    cScore = cScore + 2;
                     uScore--;
                     Trials++;
                     attempts.innerHTML = `Trials: ${Trials}`;
@@ -125,7 +125,7 @@
                };
         
                switch (uSum - cSum) {
-                case "uSum - cSum" >  0:
+                case uSum - cSum >  0:
                 userScore.innerHTML = uSum;
                 attempts.innerHTML = `Trials: ${Trials}`;
                 Result.innerHTML = "You won the game! Congratulations!";
@@ -136,7 +136,7 @@
                 break;
                }
                 switch (uSum - cSum){
-                case "uSum - cSum" <  0:
+                case uSum - cSum <  0:
                 computerScore.innerHTML = cSum;
                 attempts.innerHTML = `Trials: ${Trials}`;
                 Result.innerHTML = "You lost the game!Try again next time!";
@@ -147,7 +147,7 @@
                     break;
                 }
                 switch (uSum - cSum){
-                case "uSum - cSum" ==  0:
+                case uSum - cSum ===  0:
                 userScore.innerHTML = uSum;
                 computerScore.innerHTML = cSum;
                 attempts.innerHTML = `Trials: ${Trials}`;
