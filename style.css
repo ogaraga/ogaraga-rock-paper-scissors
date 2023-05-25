@@ -6,13 +6,24 @@
 .game-container{
     background-color: aqua;
     width: 90%;
-    height: 60vh;
+    height: 70vh;
     margin: 30px auto;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+footer p{
+    margin:10px auto;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: -20px;
+    color: burlywood;
+    font-variant: small-caps;
+    font-size: 13px;
+    font-weight: bold;
 }
 #attempts{
     color: hotpink;
