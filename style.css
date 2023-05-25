@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.game-container{
+    background-color: aqua;
+    width: 90%;
+    height: 60vh;
+    margin: 30px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#attempts{
+    color: hotpink;
+    font-size: 17px;
+    font-weight: bold;
+    display: none;
+}
+#game{
+    font-size: 20px;
+    color: yellow;
+    padding: 10px;
+    font-variant: small-caps;
+    opacity: 1;
+    font-weight: bold;
+}
+#btn{
+    padding: 8px 20px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: none;
+}
+#btn:hover{
+    transition: all 1s;
+    cursor: pointer;
+    background-color: red;
+    color: blue;
+}
+h1{
+    font-size: 21px;
+    position: absolute;
+    top: 10px;
+    color: red;
+    word-spacing: 15px;
+}
+.userframe{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+    
+}
+.computerframe{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;   
+}
+h2,p{
+    padding: 3px;
+    font-variant: small-caps;
+
+}
+P{
+    font-size: 15px;
+    color: rgb(249, 22, 22);
+    font-weight: bold;
+    
+}
+h2{
+    color: slateblue;
+    font-size: 18px;
+}
+.options{
+    font-size: 25px;
+    padding: 20px;
+    margin: 20px;
+    color: hotpink;
+    font-variant: small-caps;
+}
+.optionbuttons{
+    margin: 20px;
+    border-radius: 10px;
+    background-color: darkslategrey;
+    padding: 20px 40px;
+    width: auto;
+    height: auto;
+}
+button{
+    padding: 15px;
+    margin: auto 10px;
+    background-color: maroon;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    flex: 1;
+}
+button:hover{
+    transition: all 1s;
+    background-color: magenta;
+    color: blue;
+    cursor: pointer;
+}

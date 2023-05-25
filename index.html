@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCK, PAPER AND SCISSORS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>ROCK, PAPER & SCISSORS GAME</h1>
+        <div class="userframe">
+            <h2>User score</h2>
+            <p id="userscore"><sub>0</sub></p>
+        </div>
+        <div class="computerframe">
+            <h2>Computer Score</h2>
+            <p id="computerscore"><sub>0</sub></p>
+        </div>
+        <div id="game">Pick a game</div>
+        <!-- buttons for the game -->
+        <div class="options" id="option">
+            <button type="button" id="rock">Game </button>
+            <button type="button" id="scissors">Game</button>
+            <button type="button" id="paper">Game </button>
+        </div>
+        <!-- Result scoreboard -->
+        <div id="result"></div>
+        <!-- Restart game -->
+        <input type="button" id="btn" value="RELOAD"></input>
+
+    </div>
+    <script>
+        let uScore = 0;
+        let cScore = 0;   
+                    
+        const computerScore = document.getElementById("computerscore");
+        const userScore = document.getElementById("userscore");
+        const availOptions = document.querySelectorAll(".options");
+        const Result = document.getElementById("result");
+        
+        let userChoice;
+        let comChoice;
+        
+        availOptions.forEach(availOption =>{
+            availOption.addEventListener("click",(e)=>{
+                userChoice = e.target.id;
+                Result.innerHTML = userChoice;
+                GenerateNumber();
+                ResultScore(); 
+                 
+            
+            });  
+    
+    });
+    
+            function GenerateNumber(){
+                let randno = Math.ceil(Math.random() * 3);
+                if(randno === 1){
+                comChoice = "paper";
+                }
+                if(randno === 2){
+                comChoice = "scissors";
+                }
+                if(randno === 3){
+                comChoice = "rock";
+                }
+                Result.innerHTML = comChoice;
+    
+            }
+            
+            function ResultScore() {
+                if (userChoice === comChoice) {
+                   Result.innerHTML = "it's tie: same game!";
+                    uScore++;
+                    cScore++;
+                    userScore.innerHTML = uScore;
+                    computerScore.innerHTML = cScore;
+                }
+                else if (userChoice === "rock" && comChoice === "paper") {
+                    Result.innerHTML = "You lose: it's Paper!";
+                    cScore++;
+                    computerScore.innerHTML = cScore;
+                }
+                else if (userChoice === "paper" && comChoice === "scissors" ) {
+                    Result.innerHTML = "You win: it's paper!";
+                    uScore++;
+                    userScore.innerHTML = uScore;
+                }
+                else if (userChoice === "scissors" && comChoice === "rock") {
+                    Result.innerHTML = "You win: it's scissors!";
+                    uScore++;
+                    userScore.innerHTML = uScore;
+                }
+                else {
+                    userChoice === "paper" && comChoice === "rock"
+                    Result.innerHTML = "You lose: it's rock!";
+                    cScore++;
+                    computerScore.innerHTML = cScore;
+                } 
+                
+            };   
+            
+    </script>
+</body>
+</html>
