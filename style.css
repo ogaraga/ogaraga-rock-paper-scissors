@@ -28,6 +28,15 @@
     opacity: 1;
     font-weight: bold;
 }
+#gameover{
+    font-size: 20px;
+    color: red;
+    opacity: 1;
+    font-weight: bold;
+    font-variant: small-caps;
+    padding: 5px;
+    display: none;
+}
 #btn{
     padding: 8px 20px;
     margin-top: 20px;
@@ -101,6 +110,10 @@ h2{
     padding: 20px 40px;
     width: auto;
     height: auto;
+}
+span{
+    color: blueviolet;
+    font-size: 18px;
 }
 button{
     padding: 15px;

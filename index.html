@@ -19,6 +19,8 @@
             <p id="computerscore"><sub>0</sub></p>
         </div>
         <div id="game">Pick a game</div>
+        <span id = span>Trials: <b style="color: magenta;">0</b></span>
+        <div id="gameover">GamesOver</div>
         <!-- buttons for the game -->
         <div class="options" id="option">
             <button type="button" id="rock">Game </button>
@@ -33,8 +35,14 @@
     </div>
     <script>
         let uScore = 0;
-        let cScore = 0;   
-                    
+        let cScore = 0; 
+        let Trials = 0;
+        let uSum;
+        let cSum;
+        const attempts = document.getElementById("span");  
+        const gameover = document.getElementById("gameover");
+        const buttons = document.getElementById("option");
+        const Reload = document.getElementById("btn");           
         const computerScore = document.getElementById("computerscore");
         const userScore = document.getElementById("userscore");
         const availOptions = document.querySelectorAll(".options");
@@ -48,11 +56,12 @@
                 userChoice = e.target.id;
                 Result.innerHTML = userChoice;
                 GenerateNumber();
+                
                 ResultScore(); 
-                 
+               
             
             });  
-    
+                
     });
     
             function GenerateNumber(){
@@ -71,37 +80,98 @@
             }
             
             function ResultScore() {
-                if (userChoice === comChoice) {
-                   Result.innerHTML = "it's tie: same game!";
-                    uScore++;
-                    cScore++;
+                uSum = Trials - uScore;
+                cSum = Trials - cScore;
+                switch(userChoice + comChoice){
+                    case "rockrock":
+                    case "paperpaper":
+                    case "scissorsscissors":
+                    cScore;
+                    uScore;
+                    Trials;
+                    attempts.innerHTML = `Trials: ${Trials}`;
                     userScore.innerHTML = uScore;
                     computerScore.innerHTML = cScore;
-                }
-                else if (userChoice === "rock" && comChoice === "paper") {
-                    Result.innerHTML = "You lose: it's Paper!";
-                    cScore++;
-                    computerScore.innerHTML = cScore;
-                }
-                else if (userChoice === "paper" && comChoice === "scissors" ) {
-                    Result.innerHTML = "You win: it's paper!";
+                    Result.innerHTML = "it's a tie: same game!";
+                    Result.style.color = "grey";
+                    break;
+        
+                    case "rockpaper":
+                    case "paperscissors":
+                    case "scissorsrock":
                     uScore++;
+                    cScore--;
+                    Trials++;
+                    attempts.innerHTML = `Trials: ${Trials}`;
                     userScore.innerHTML = uScore;
-                }
-                else if (userChoice === "scissors" && comChoice === "rock") {
-                    Result.innerHTML = "You win: it's scissors!";
-                    uScore++;
-                    userScore.innerHTML = uScore;
-                }
-                else {
-                    userChoice === "paper" && comChoice === "rock"
-                    Result.innerHTML = "You lose: it's rock!";
-                    cScore++;
                     computerScore.innerHTML = cScore;
-                } 
+                    Result.innerHTML = "You win:";
+                    Result.style.color = "green";
+                    break;
                 
-            };   
-            
+                    case "paperrock":
+                    case "scissorspaper":
+                    case "rockscissors":
+                    cScore++;
+                    uScore--;
+                    Trials++;
+                    attempts.innerHTML = `Trials: ${Trials}`;
+                    computerScore.innerHTML = cScore;
+                    userScore.innerHTML = uScore;
+                    Result.innerHTML = "You lose";
+                    Result.style.color = "red";
+                    break;
+                    
+               };
+        
+               switch (uSum - cSum) {
+                case "uSum - cSum" >  0:
+                userScore.innerHTML = uSum;
+                attempts.innerHTML = `Trials: ${Trials}`;
+                Result.innerHTML = "You won the game! Congratulations!";
+                Result.style.color = "green";
+                buttons.style.display = "none";
+                gameover.style.display = "block";
+                Reload.style.display = "block";
+                break;
+               }
+                switch (uSum - cSum){
+                case "uSum - cSum" <  0:
+                computerScore.innerHTML = cSum;
+                attempts.innerHTML = `Trials: ${Trials}`;
+                Result.innerHTML = "You lost the game!Try again next time!";
+                Result.style.color = "red";
+                buttons.style.display = "none";
+                gameover.style.display = "block";
+                Reload.style.display = "block"; 
+                    break;
+                }
+                switch (uSum - cSum){
+                case "uSum - cSum" ==  0:
+                userScore.innerHTML = uSum;
+                computerScore.innerHTML = cSum;
+                attempts.innerHTML = `Trials: ${Trials}`;
+                Result.innerHTML = "Draw  game!";
+                Result.style.color = "grey";
+                buttons.style.display = "none";
+                gameover.style.display = "block"; 
+                Reload.style.display = "block";
+                    break;
+               
+               }
+               return
+           
+            };  
+            Reload.onclick = (e)=>{
+            buttons.style.display = "block";
+            Reload.style.display = "none";
+            gameover.style.display = "none"; 
+            Result.innerHTML = "";
+            userScore.innerHTML = "";
+            computerScore.innerHTML = "";
+            };
+      
+         
     </script>
 </body>
 </html>
