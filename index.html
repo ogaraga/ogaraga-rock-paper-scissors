@@ -126,60 +126,66 @@
                     
                };
         
-               switch (uSum - cSum) {
-                case uSum - cSum >  0:
-                userScore.innerHTML = uSum;
-                attempts.innerHTML = `Trials: ${Trials}`;
-                Result.innerHTML = "You won the game! Congratulations!";
-                Result.style.color = "green";
-                buttons.style.display = "none";
-                gameover.style.display = "block";
-                Reload.style.display = "block";
-                break;
-               }
-                switch (uSum - cSum){
-                case uSum - cSum <  0:
-                computerScore.innerHTML = cSum;
-                attempts.innerHTML = `Trials: ${Trials}`;
-                Result.innerHTML = "You lost the game!Try again next time!";
-                Result.style.color = "red";
-                buttons.style.display = "none";
-                gameover.style.display = "block";
-                Reload.style.display = "block"; 
-                    break;
-                }
-                switch (uSum - cSum){
-                case uSum - cSum ===  0:
-                userScore.innerHTML = uSum;
-                computerScore.innerHTML = cSum;
-                attempts.innerHTML = `Trials: ${Trials}`;
-                Result.innerHTML = "Draw  game!";
-                Result.style.color = "grey";
-                buttons.style.display = "none";
-                gameover.style.display = "block"; 
-                Reload.style.display = "block";
-                    break;
-               
-               }
-               return
            
             };  
-            Reload.onclick = (e)=>{
-            buttons.style.display = "block";
-            Reload.style.display = "none";
-            gameover.style.display = "none"; 
-            Result.innerHTML = "";
-            userScore.innerHTML = "";
-            computerScore.innerHTML = "";
-            };
+            
+            let reloadgame = document.getElementById("btn");
             let mypick = document.getElementById("game");
             let animate = document.getElementById("animate");
             buttons.onclick = ()=>{
+              if(attempts.innerText === "Trials: 100" && `${userScore.innerText}` >= "60"){
                 animate.style.color = "black";
                 animate.style.display = "none";
+                attempts.innerText = `Trials:${Trials = 0}`;
+                attempts.style.display = "block";
+                buttons.style.display = "none";
+                mypick.style.display = "block";
+                reloadgame.style.display = "block";
+                Result.innerHTML = "Game Has Ended and Congratulations, You won!";
+                Result.style.color = "green";
+                userScore.innerText = `${uScore = 0}`;
+                computerScore.innerText = `${cScore = 0}`;
+            }
+            else if(attempts.innerText === "Trials: 100" && `${computerScore.innerText}` >= "60"){
+                animate.style.color = "black";
+                buttons.style.display = "none";
+                animate.style.display = "none";
+                attempts.innerText = `Trials:${Trials = 0}`;
                 attempts.style.display = "block";
                 mypick.style.display = "block";
+                reloadgame.style.display = "block";
+                Result.innerHTML = "Game Has Ended and Sorry, You lost try again!";
+                Result.style.color = "red";
+                userScore.innerText = `${uScore = 0}`;
+                computerScore.innerText = `${cScore = 0}`;
+                 }
+            else{
+                reloadgame.style.display = "none";
+                animate.style.color = "inherit";
+                animate.style.display = "none";
+                attempts.innerText = `Trials:${Trials}`;
+                attempts.style.display = "block";
+                mypick.style.display = "block";
+                buttons.style.display = "block";
+                userScore.innerText = `${uScore += 0}`;
+                computerScore.innerText = `${cScore += 0}`;
+             }
             }
+        reloadgame.onclick = ()=>{
+                animate.style.color = "black";
+                animate.style.display = "block";
+                attempts.innerText = `Trials:${Trials}`;
+                attempts.style.display = "none";
+                mypick.style.display = "none";
+                reloadgame.style.display = "none";
+                Result.innerHTML = "New game Resumed!";
+                Result.style.color = "inherit";
+                userScore.innerText = 0;
+                computerScore.innerText = 0;
+                buttons.style.display = "block";
+                }
+        
+            
       
          
     </script>

@@ -57,7 +57,7 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    display: none;
+    display: block;
 }
 #btn:hover{
     transition: all 1s;
