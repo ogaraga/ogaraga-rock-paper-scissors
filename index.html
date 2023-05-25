@@ -133,7 +133,7 @@
             let mypick = document.getElementById("game");
             let animate = document.getElementById("animate");
             buttons.onclick = ()=>{
-              if(attempts.innerText === "Trials: 100" && `${userScore.innerText}` >= "60"){
+              if(attempts.innerText === "Trials: 100" && `${userScore.innerText}` >= "60" &&  `${userScore.innerText}`> `${computerScore.innerText}`){
                 animate.style.color = "black";
                 animate.style.display = "none";
                 attempts.innerText = `Trials:${Trials = 0}`;
@@ -146,7 +146,7 @@
                 userScore.innerText = `${uScore = 0}`;
                 computerScore.innerText = `${cScore = 0}`;
             }
-            else if(attempts.innerText === "Trials: 100" && `${computerScore.innerText}` >= "60"){
+            else if(attempts.innerText === "Trials: 100" && `${computerScore.innerText}` >= "60" && `${computerScore.innerText}` >`${userScore.innerText}`){
                 animate.style.color = "black";
                 buttons.style.display = "none";
                 animate.style.display = "none";
